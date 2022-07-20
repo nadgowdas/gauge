@@ -48,8 +48,10 @@ func runGaugeForPackage(ctx context.Context, opts common.GaugeOpts, gaugeCtr *ga
 
 	printGaugeReportForPackage(report, opts)
 
+	reports := []common.GaugeReport{}
+	reports = append(reports, report)
 	if opts.ResultFilepath != "" {
-		storeLogReport(report, opts.ResultFilepath)
+		storeLogReport(reports, opts.ResultFilepath)
 	}
 }
 
